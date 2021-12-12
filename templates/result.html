@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+
+<body>
+  <br>
+  <br>
+<div class="container py-5">
+  <header class="text-center">
+    <h1 class="display-4">{{ messages.usr[1] }}</h1>
+  </header>
+  <div class="row py-5">
+    <div class="col-lg-10 mx-auto">
+      <div class="card rounded shadow border-0">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Subject</th>
+                  <th>Internal</th>
+                  <th>External</th>
+                  <th>Grade</th>
+                </tr>
+              </thead>
+              <tbody>
+                {%for i in range(0, tabcol)%}
+                  <tr>
+                    <td> {{ messages.result[i].SUB_NAME }} </td>
+                    <td> {{ messages.result[i].INTERNAL }}</td>
+                    <td> {{ messages.result[i].EXTERNAL }}</td>
+                    <td> {{ messages.result[i].GRADE }} </td>
+                  </tr>
+                {%endfor%}
+              </tbody>
+            </table>
+            
+          </div>
+          <p> sgpa : {{ messages.sgpa }} / 10</p>
+          <div>
+            <a class="btn btn-primary" href="{{base_url}}/results" role="button"> Go Back </a> 
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/js/Bootstrap-DataTables.js"></script>
+</body>
+
+
+{% endblock %}
