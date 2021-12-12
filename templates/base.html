@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta name="viewport" content="width=device-width" />
+
+  <!-- Favicon and title -->
+  <link rel="icon" href="path/to/fav.png">
+  {% if title %}
+    <title>~/{{ title }}</title>
+  {% else %}
+    <title>EnigmaCodex </title>
+  {% endif %}
+  <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
+</head>
+<body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="false" data-set-preferred-mode-onload="true">
+  <div class="page-wrapper with-navbar">
+    <div class="sticky-alerts"></div>
+    <nav class="navbar">
+      <meta property="og:title" content="EnigmaCodex - ACE Engineering College" />
+<meta property="og:url" content="https://enigmahubace.herokuapp.com/results" />
+<meta property="og:image" content="https://i.imgur.com/xbGcWqJ.png" />
+<meta property="og:description" 
+  content="ACE Engineering college official coding club created by students for the students" />
+<nav class="navbar">
+  <a href="/miniproject" class="navbar-brand">
+    <img src="https://avatars.githubusercontent.com/u/68860441?v=4" alt="EnigmaCodex - Projects">
+  </a>
+  <!-- Navbar text -->
+  <span class="navbar-text ml-5"> <!-- ml-5 = margin-left: 0.5rem (5px) -->
+    <span class="badge text-monospace">Projects</span> <!-- text-monospace = font-family shifted to monospace -->
+  </span>
+  <!-- Navbar nav -->
+  <ul class="navbar-nav d-none d-md-flex"> <!-- d-none = display: none, d-md-flex = display: flex on medium screens and up (width > 768px) -->
+    <li class="nav-item">
+      <a href="/miniproject/" class="nav-link">Curated List</a>
+    </li>
+    <li class="nav-item">
+      <a href="/miniproject/all" class="nav-link">All Projects</a>
+    </li>
+    <li class="nav-item">
+      <a href="/results" class="nav-link">JNTU Results</a>
+    </li>
+  </ul>
+</nav>
+
+<script src="path/to/halfmoon.js"></script>
+    </nav>
+    <div class="content-wrapper">
+        {% if ermsg %}
+        <div class="alert alert-secondary" role="alert">
+          {{ ermsg }}
+        </div>
+        {% endif %}
+          
+        
+        <!--content here -->
+        {% block content %}
+        {% endblock %}
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+  
+  <div class="navbar navbar-fixed-bottom">
+    #teamenigma
+  </div>
+</body>
+
+
+
+</html>

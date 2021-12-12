@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+<title>{{ post.title }}</title>
+<body>
+    <!-- Page wrapper with content-wrapper inside -->
+    <div class="page-wrapper">
+      <div class="content-wrapper">
+        <!-- Container-fluid -->
+        <div class="container-fluid">
+          <div class="row">
+            <!-- Column with the main content -->
+            <div class="col-lg-9">
+                <div class="content">
+                    <h1 class="content-title font-size-22"> <!-- font-size-22 = font-size: 2.2rem (22px) -->
+                        {{ post.title }}
+                        <br>
+                        {% if post.domains %}
+                        {% for domain in post.domains %}
+                                <kbd>{{ domain }}</kbd>   
+                        {% endfor %}
+                        {% endif %}
+                    </h1>
+                    <h6>
+                        <br>
+                        <strong>Team : </strong>
+                        {% for member in post.teamnames %}
+                            <span class="badge badge-pill">{{ member }}</span>  
+                        {% endfor %}
+                    </h6>
+                </div>
+                <div class="card">
+                    <h1 class="card-title">Abstract</h1>
+                    {{ post.abstract|markdown }}
+                    {% if post.github  %}
+                        <div class="github-card" data-github={{ post.github }} data-width="400" data-height="" data-theme="default"></div>
+                        <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+                    {% endif %}
+                </div>
+
+                {% if post.youtube  %}
+                <div class="card">
+                    <h1 class="card-title">Video Demonstration</h1>
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/{{ post.youtube.split('?v=')[1] }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+                </div>
+                {% endif %}
+                
+                <div class="card">
+                    <h1 class="card-title">Description</h1>
+                    <p>{{ post.explainer|markdown }}</p>
+                        
+                </div>
+            </div>
+            <!-- Column with the side content -->
+            <div class="col-lg-3 d-none d-lg-block"> <!-- d-none = display: none, d-lg-block = display: block only on large screens and up (> 992px) -->
+              <div class="content">
+                 <!-- font-size-16 = font-size: 1.6rem (16px) -->
+                <strong>Project leader:</strong> {{ post.leader }}<br>
+                      <strong>Mentor:</strong> {{ post.mentor }}<br>
+                      <strong>Branch:</strong> <span class="badge">{{ post.branch }}</span> <br>
+                      <strong>Team:</strong>
+                      {% for member in post.teamnames %}
+                        <br>
+                        <kbd>{{ member }}</kbd>   
+                      {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+{% endblock content %}
